@@ -1,6 +1,5 @@
-
-
-// Floyd-Steinberg抖动算法
+// bw-dithering.js
+// Floyd-Steinberg抖动算法（黑白）
 function floydSteinbergDithering(data, width, height) {
     // 转换为灰度
     for (let i = 0; i < data.length; i += 4) {
@@ -33,7 +32,7 @@ function floydSteinbergDithering(data, width, height) {
             }
             if (x + 1 < width && y + 1 < height) {
                 const bottomRightIdx = idx + width * 4 + 4;
-                data[bottomRightIdx] += error * 1 / 16;
+                data[bottomRightIdx] += error / 16;
             }
         }
     }
@@ -43,8 +42,10 @@ function floydSteinbergDithering(data, width, height) {
 function processBW() {
     if (!currentImage) return;
 
-    const imageData = canvasContexts.original.getImageData(0, 0, currentImage.width, currentImage.height);
-    const data = new Uint8ClampedArray(imageData.data);
+    const imageData = canvasContexts.original.getImageData(
+        0, 0, currentImage.width, currentImage.height
+    );
+    const data = imageData.data;
 
     floydSteinbergDithering(data, currentImage.width, currentImage.height);
 

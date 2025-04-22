@@ -3,13 +3,7 @@
 var currentImage = null;
 var canvasContexts = {};
 
-// 初始化Canvas上下文
-function initCanvasContexts(originalId, bwId, rgbId, hslId) {
-    canvasContexts.original = document.getElementById(originalId).getContext('2d');
-    canvasContexts.bw = document.getElementById(bwId).getContext('2d');
-    canvasContexts.rgb = document.getElementById(rgbId).getContext('2d');
-    canvasContexts.hsl = document.getElementById(hslId).getContext('2d');
-}
+
 
 // Floyd-Steinberg抖动算法
 function floydSteinbergDithering(data, width, height) {

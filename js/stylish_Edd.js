@@ -47,7 +47,6 @@ function hslToRgb(h, s, l) {
 
     return [r * 255, g * 255, b * 255];
 }
-// 在main.js或您的JS文件中添加以下代码
 
 // 存储当前选中的调色板信息
 let currentPalette = {
@@ -124,7 +123,10 @@ function hslErrorDiffusion(data, width, height) {
         }
 
         // 计算误差
-        const hError = h - new_h;
+        var hError = h - new_h;
+
+        if(Math.abs(hError)>60)
+            hError = (hError > 0)?60:-60;
 
         //扩散
         if(x<width)

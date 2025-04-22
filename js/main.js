@@ -1,4 +1,5 @@
-
+var currentImage = null;
+var canvasContexts = {};
 function initCanvasContexts(originalId, bwId, rgbId, hslId) {
     canvasContexts.original = document.getElementById(originalId).getContext('2d');
     canvasContexts.bw = document.getElementById(bwId).getContext('2d');

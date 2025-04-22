@@ -1,9 +1,4 @@
 
-// 当前处理状态
-var currentImage = null;
-var canvasContexts = {};
-
-
 
 // Floyd-Steinberg抖动算法
 function floydSteinbergDithering(data, width, height) {
